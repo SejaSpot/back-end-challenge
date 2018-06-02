@@ -1,13 +1,25 @@
 {
   "devDependencies": {
-    "lerna": "2.11.0"
+    "lerna": "2.11.0",
+    "yarn": "^1.7.0"
   },
-  "name": "spot-back-end-challenge",
+  "name": "@marcoonroad/spot-back-end-challenge",
   "description": "Esse desafio tem o objetivo de testar algumas habilidades em back-end.",
   "version": "0.0.1",
-  "main": "bin/www",
   "scripts": {
-    "test": "jest"
+    "logs": "NODE_PATH=src lerna run logs",
+    "logs:dev": "NODE_PATH=src lerna run logs:dev",
+    "postinstall": "lerna bootstrap",
+    "start": "NODE_PATH=src NODE_ENV=production lerna run start",
+    "start:dev": "DEBUG=*:* NODE_PATH=src NODE_ENV=development lerna run start:dev",
+    "up": "NODE_PATH=src NODE_ENV=production lerna run up",
+    "up:dev": "NODE_PATH=src NODE_ENV=development lerna run up:dev",
+    "stop": "NODE_PATH=src NODE_ENV=production lerna run stop",
+    "stop:dev": "NODE_PATH=src NODE_ENV=development lerna run stop:dev",
+    "pretest": "npm audit",
+    "pretest:cover": "npm audit",
+    "test": "NODE_PATH=src NODE_ENV=testing lerna run test",
+    "test:cover": "NODE_PATH=src NODE_ENV=coverage lerna run test:cover"
   },
   "repository": {
     "type": "git",

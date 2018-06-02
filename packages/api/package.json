@@ -1,0 +1,45 @@
+{
+  "name": "@marcoonroad/spot-back-end-challenge-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "logs": "forever -p ./ logs production",
+    "logs:dev": "forever -p ./ logs development",
+    "start": "forever ./bin/www",
+    "start:dev": "nodemon ./bin/www",
+    "up": "forever start -p ./ -a --uid \"production\" ./bin/www",
+    "up:dev": "forever start -p ./ -a --uid \"development\" ./bin/www",
+    "stop": "forever stop \"production\"",
+    "stop:dev": "forever stop \"development\"",
+    "test": "jest",
+    "test:cover": "jest --coverage"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0"
+  },
+  "description": "Backend API for the Blog challenge.",
+  "main": "bin/www",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoonroad/back-end-challenge.git"
+  },
+  "keywords": [
+    "blog",
+    "back-end-challenge",
+    "api"
+  ],
+  "author": "Marco Aurélio da Silva <marcoonroad@gmail.com> (http://marcoonroad.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcoonroad/back-end-challenge/issues"
+  },
+  "homepage": "https://github.com/marcoonroad/back-end-challenge#readme",
+  "devDependencies": {
+    "forever": "^0.15.3",
+    "jest": "^23.1.0",
+    "nodemon": "^1.17.5"
+  }
+}
