@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "lerna": "2.11.0"
+  },
+  "name": "spot-back-end-challenge",
+  "description": "Esse desafio tem o objetivo de testar algumas habilidades em back-end.",
+  "version": "0.0.1",
+  "main": "bin/www",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoonroad/back-end-challenge.git"
+  },
+  "keywords": [
+    "blog",
+    "back-end-challenge"
+  ],
+  "author": "Marco Aurélio da Silva <marcoonroad@gmail.com> (http://marcoonroad.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcoonroad/back-end-challenge/issues"
+  },
+  "homepage": "https://github.com/marcoonroad/back-end-challenge#readme"
+}
