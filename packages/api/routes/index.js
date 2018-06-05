@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const queryRouter = require ('./query');
+const errorRouter = require ('./error');
+
+const express = require('express');
+const router = express.Router();
+
+router.use ('/query', queryRouter);
+router.use (errorRouter);
 
 module.exports = router;

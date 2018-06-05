@@ -1,0 +1,10 @@
+node_modules/
+packages/api/node_modules/
+packages/sdk/node_modules/
+README.md
+LICENSE
+docs/
+Procfile
+*.log
+.env
+.gitignore

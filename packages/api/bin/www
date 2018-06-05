@@ -45,7 +45,6 @@ function normalizePort(val) {
     // port number
     if (process.env.NODE_ENV === "development") port += 1;
     if (process.env.NODE_ENV === "testing")     port += 2;
-    if (process.env.NODE_ENV === "coverage")    port += 3;
 
     return port;
   }

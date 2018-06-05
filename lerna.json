@@ -10,5 +10,6 @@
     }
   },
   "npmClient": "yarn",
-  "npmClientArgs": []
+  "npmClientArgs": [],
+  "concurrency": 1
 }

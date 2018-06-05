@@ -1,25 +1,28 @@
 {
   "devDependencies": {
+    "depcheck": "^0.6.9",
     "lerna": "2.11.0",
     "yarn": "^1.7.0"
   },
   "name": "@marcoonroad/spot-back-end-challenge",
+  "private": true,
   "description": "Esse desafio tem o objetivo de testar algumas habilidades em back-end.",
   "version": "0.0.1",
   "scripts": {
-    "logs": "NODE_PATH=src lerna run logs",
-    "logs:dev": "NODE_PATH=src lerna run logs:dev",
+    "deploy:heroku": "git push heroku HEAD:master",
     "postinstall": "lerna bootstrap",
-    "start": "NODE_PATH=src NODE_ENV=production lerna run start",
-    "start:dev": "DEBUG=*:* NODE_PATH=src NODE_ENV=development lerna run start:dev",
-    "up": "NODE_PATH=src NODE_ENV=production lerna run up",
-    "up:dev": "NODE_PATH=src NODE_ENV=development lerna run up:dev",
-    "stop": "NODE_PATH=src NODE_ENV=production lerna run stop",
-    "stop:dev": "NODE_PATH=src NODE_ENV=development lerna run stop:dev",
-    "pretest": "npm audit",
-    "pretest:cover": "npm audit",
-    "test": "NODE_PATH=src NODE_ENV=testing lerna run test",
-    "test:cover": "NODE_PATH=src NODE_ENV=coverage lerna run test:cover"
+    "start": "cd packages/api && NODE_ENV=production yarn start",
+    "start:dev": "cd packages/api && NODE_ENV=development yarn start:dev",
+    "up": "NODE_ENV=production lerna run up",
+    "up:dev": "NODE_ENV=development lerna run up:dev",
+    "up:test": "NODE_ENV=testing lerna run up:test",
+    "down": "NODE_ENV=production lerna run down",
+    "down:dev": "NODE_ENV=development lerna run down:dev",
+    "down:test": "NODE_ENV=testing lerna run down:test",
+    "down:test:crash": "NODE_ENV=testing lerna run down:test && exit 1",
+    "pretest": "NODE_ENV=testing yarn run up:test",
+    "posttest": "NODE_ENV=testing yarn run down:test",
+    "test": "NODE_ENV=testing lerna run test --prefix --stream || NODE_ENV=testing yarn run down:test:crash"
   },
   "repository": {
     "type": "git",

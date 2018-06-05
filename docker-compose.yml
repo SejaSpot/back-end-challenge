@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  web:
+    image: marcoonroad/spot-challenge
+    build: .
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+    networks:
+      - postgres
+    depends_on:
+      - db
+    environment:
+      - DEBUG="*,*:*"
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgres
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge

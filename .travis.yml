@@ -1,0 +1,7 @@
+language: node_js
+
+services:
+  - postgresql
+
+cache:
+  yarn: true
