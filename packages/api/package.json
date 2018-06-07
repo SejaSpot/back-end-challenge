@@ -13,6 +13,7 @@
     "db:down": "npm-run-all db:clear db:revert",
     "db:spawn": "npm-run-all db:create db:up",
     "db:kill": "npm-run-all db:down db:drop",
+    "db:respawn": "npm-run-all db:kill db:spawn",
     "logs": "forever -p ./ logs production",
     "logs:dev": "forever -p ./ logs development",
     "prestart": "yarn run db:migrate",

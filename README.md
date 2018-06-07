@@ -1,75 +1,56 @@
-# Back-end JR Challenge #
+## Spot Back-end JR Challenge
 
-Esse desafio tem o objetivo de testar algumas habilidades em back-end.
+[![pipeline status](https://gitlab.com/marcoonroad/back-end-challenge/badges/marcoonroad_2018-06-02/pipeline.svg)](https://gitlab.com/marcoonroad/back-end-challenge/commits/marcoonroad_2018-06-02)
 
-## O desafio
+---
 
-Criar uma API em NodeJS que forneça um serviço para um blog. A API deve utilizar um banco de dados a sua escolha. 
+- Candidate: Marco Aurélio da Silva
+- On-line Site: https://spot-back-end-challenge.herokuapp.com/
 
-O blog consiste nas seguintes entidades:
+#### Further Documentation
 
-- Autor 
-	- É importante saber o nome e uma breve descrição de cada autor
-	- Um autor pode escrever várias postagens
+- [Challenge description/requirements](docs/CHALLENGE)
+- [Rationale comments](docs/COMMENTS)
+- [Database setup](docs/DATABASE)
+- [Server setup](docs/INSTRUCTIONS)
+- [Routes specification](docs/ROUTES)
 
-- Postagem
-	- Em cada postagem é importante saber o título, o conteúdo, a data, as categorias, o autor e a quantidade de vezes que a postagem foi exibida.
-	- Uma postagem possuí apenas um autor, mas pode pertencer a várias categorias.
+TLDR, `$ docker-compose up --build`
 
-- Categoria
-	- É importante saber o nome de cada categoria.
-	- Categorias podem ter sub-categorias
+#### Performed Steps:
 
+- [x] Template project setup
+- [x] Web interface with mocked persistence (i.e, in-memory)
+- [x] Data persistence ft. migrations
 
-A API deve implementar as seguintes features:
+#### Used concepts/features:
 
-- CRUD Autor.
-	- Deve ser possível Cadastrar/Ver/Alterar/Apagar um autor específico.
-	- Deve ser possível listar todos os autores.
+- [ ] Cursor-based pagination (Relay-compliant)
+- [x] BDD/E2E/Integration tests
+- [ ] Multi-stage Docker builds
+- [ ] Rate-limit & resource-limit for endpoints & GraphQL
+- [x] Process-manager
+- [ ] Health-checking
+- [ ] Transactional control for multiple related queries
 
-- CRUD Postagem.
-	- Deve ser possível Cadastrar/Ver/Alterar/Apagar uma postagem específica.
+#### Tools:
 
-- CRUD Categoria.
-	- Deve ser possível Cadastrar/Ver/Alterar/Apagar uma categoria específica.
-	- Deve ser possível listar todas as categorias.
-
-- Listar todos as postagens de um determinado autor ou categoria.
-
-- Os resultados de listagem devem ter parâmetros para paginar os resultados.
-
-- Todas as requisições devem retornar os resultados em JSON
-
-
-## Instruções ##
-
-- Forke esse repositório e faça seu desafio numa branch chamada ```seunome_ano-mes-dia``` (use dois dígitos para as informações numéricas).
-- Crie um arquivo DATABASE.md com as instruções para replicar o banco.
-- Crie um arquivo INSTRUCTIONS.md com as instruções para replicar e executar sua API.
-- Crie um arquivo ROUTES.md com todas as rotas(urls) para interagir com a sua API.
-- Assim que concluído o desafio, abra um pull request com suas alterações e envie um email para [tecnologia@sejaspot.com.br](mailto:tecnologia@sejaspot.com.br) entitulado ```Desafio Back-End``` contendo o link para o pull request.
-
-## Considerações Gerais
-
-- Crie um arquivo COMMENTS.md no seu fork para registrar suas reflexões, decisões, escolhas e os porquês.
-- Comente o código.
-- Automatize o máximo possível.
-- Use ferramentas e bibliotecas open source, mas documente as decisões e os porquês.
-- Você é livre para definir a modelagem e organização das features a serem implementadas.
-- Todo o projeto deve ser autocontido.
-- Deve ser enviado instruções para executar o projeto.
-- Lembre-se, não tenha pressa! Iremos avaliar a qualidade do seu código, mesmo incompleto e principalmente a sua semântica. Em caso de dúvida, mande um e-mail para [tecnologia@sejaspot.com.br](mailto:tecnologia@sejaspot.com.br).
-
-
-## O que será avaliado ##
-
-- Organização do projeto.
-- Simplicidade da implementação.
-- Modelagem do Banco de Dados.
-- Qualidade do código.
-- Utilização correta dos status HTTP (200, 404, 500, etc...)
-- Processo de build.
-- Qualidade dos testes (é um diferencial).
-- Em caso de dúvida, envie um email para [tecnologia@sejaspot.com.br](mailto:tecnologia@sejaspot.com.br).
-
-Boa sorte!
+- [x] NodeJS (runtime)
+- [x] CUID (offline ID generator)
+- [ ] TypeScript (language)
+- [x] Yarn (package manager)
+- [ ] Babel (compiler)
+- [x] Express (framework for back-end)
+- [ ] Husky (pre-commit/push git hooks setup)
+- [ ] Lint-Staged (git index linter)
+- [ ] Webpack (package release)
+- [x] Apollo (GraphQL toolkit)
+- [ ] Swagger (REST API documentation)
+- [ ] Prettier (code formatter)
+- [ ] ESLint (linter)
+- [x] Heroku (platform deploy)
+- [x] Postgres (relational database)
+- [x] Sequelize (ORM framework)
+- [x] Jest (testing & coverage)
+- [x] Docker (reproducible builds)
+- [x] Docker Compose (containers linker)
