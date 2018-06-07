@@ -28,7 +28,11 @@ const project = (input, selectors) => {
   return output;
 };
 
+const failedCreation = (Model, id) =>
+  `Failed to create ${Model} for ID ${id}!`;
+
 module.exports.sync = sync;
 module.exports.notFound = notFound;
 module.exports.check = check;
 module.exports.project = project;
+module.exports.failedCreation = failedCreation;

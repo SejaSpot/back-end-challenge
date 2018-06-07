@@ -3,6 +3,7 @@
 const Sequelize = require ('sequelize');
 const config = require ('../config');
 const author = require ('./author');
+const article = require ('./article');
 const cls = require('continuation-local-storage');
 
 const namespace = cls.createNamespace('spot-challenge-sequelize-namespace');
@@ -33,9 +34,11 @@ const transaction = (procedure) => sequelize.transaction (procedure);
 
 const models = {
   Author: author (sequelize, Sequelize),
+  Article: article (sequelize, Sequelize),
 };
 
 models.Author.associate (models);
+models.Article.associate (models);
 
 module.exports = models;
 module.exports.connection = sequelize;
@@ -45,4 +48,10 @@ module.exports.transaction = transaction;
 
 module.exports.authorAttrs = [
   'id', 'name', 'bio', 'createdAt', 'updatedAt', 'version'
+];
+
+module.exports.articleAttrs = [
+  'id', 'authorId', 'title',
+  'content', 'views', 'createdAt',
+  'updatedAt', 'version'
 ];

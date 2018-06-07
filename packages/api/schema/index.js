@@ -13,6 +13,17 @@ const typeDefs = `
     updatedAt : String!
   }
 
+  type Article {
+    id        : ID!
+    authorId  : String!
+    title     : String!
+    content   : String!
+    views     : Int!
+    createdAt : String!
+    updatedAt : String!
+    version   : Int!
+  }
+
   type AuthorPayload {
     id        : ID!
     name      : String!
@@ -23,15 +34,40 @@ const typeDefs = `
     root      : Query!
   }
 
+  type ArticlePayload {
+    id        : ID!
+    authorId  : String!
+    title     : String!
+    content   : String!
+    views     : Int!
+    createdAt : String!
+    updatedAt : String!
+    version   : String!
+    root      : Query!
+  }
+
   input AuthorInput {
     name : String!
     bio  : String!
+  }
+
+  input ArticleInput {
+    authorId : String!
+    content  : String!
+    title    : String!
   }
 
   input AuthorChanges {
     id   : ID!
     name : String
     bio  : String
+  }
+
+  input ArticleChanges {
+    id       : ID!
+    title    : String
+    content  : String
+    authorId : String
   }
 
   type Query {
@@ -42,6 +78,11 @@ const typeDefs = `
     createAuthor (input : AuthorInput!) : AuthorPayload!
     setAuthor (changes : AuthorChanges!) : AuthorPayload!
     destroyAuthor (id : ID!) : AuthorPayload!
+
+    createArticle (input : ArticleInput!) : ArticlePayload!
+    getArticle (id : ID!) : Article!
+    setArticle (changes : ArticleChanges!) : ArticlePayload!
+    destroyArticle (id : ID!) : ArticlePayload!
   }
 `;
 
