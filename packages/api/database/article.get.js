@@ -1,23 +1,21 @@
-'use strict';
+"use strict";
 
-const cuid = require ('cuid');
-const { Article, articleAttrs } = require ('./models');
-const { sync, project, notFound, check } = require ('./helper');
+const { Article, articleAttrs } = require("./models");
+const { sync, project, notFound, check } = require("./helper");
 
-const get = async (id) => {
-  await sync ( );
+const get = async id => {
+  await sync();
 
   const attributes = articleAttrs;
-  const options = { attributes };
 
-  const result = await Article.findById (id);
-  const reason = notFound ('Article', id);
-  check (result, reason);
+  const result = await Article.findById(id);
+  const reason = notFound("Article", id);
+  check(result, reason);
 
-  const updated = await result.increment('views', { by: 1 });
-  check (updated, reason);
+  const updated = await result.increment("views", { by: 1 });
+  check(updated, reason);
 
-  return project (updated, attributes);
+  return project(updated, attributes);
 };
 
 module.exports = get;

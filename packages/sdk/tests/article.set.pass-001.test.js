@@ -1,8 +1,8 @@
-/* eslint-env node, jest */
+/* eslint-env node, jest, es6 */
 
-'use strict';
+"use strict";
 
-const { Author, Article } = require ('./support');
+const { Author, Article } = require("./support");
 
 const billySample = {
   name: "Billy James",
@@ -14,12 +14,12 @@ const natashaSample = {
   bio: "A dedicated tech writer and hobbyist developer."
 };
 
-test ("should be able to change the article", async ( ) => {
-  expect.assertions (14);
+test("should be able to change the article", async () => {
+  expect.assertions(14);
 
-  const billy = await Author.create (billySample);
-  expect (billy.body.data).toBeDefined ();
-  expect (billy.body.errors).toBeUndefined ();
+  const billy = await Author.create(billySample);
+  expect(billy.body.data).toBeDefined();
+  expect(billy.body.errors).toBeUndefined();
 
   const articleSample = {
     title: "Go isn't popular anymore",
@@ -27,13 +27,13 @@ test ("should be able to change the article", async ( ) => {
     content: "Nowadays, emerging languages such as Pony and Perl 6 are..."
   };
 
-  const article = await Article.create (articleSample);
-  expect (article.body.data).toBeDefined ( );
-  expect (article.body.errors).toBeUndefined ( );
+  const article = await Article.create(articleSample);
+  expect(article.body.data).toBeDefined();
+  expect(article.body.errors).toBeUndefined();
 
-  const natasha = await Author.create (natashaSample);
-  expect (natasha.body.data).toBeDefined ();
-  expect (natasha.body.errors).toBeUndefined ( );
+  const natasha = await Author.create(natashaSample);
+  expect(natasha.body.data).toBeDefined();
+  expect(natasha.body.errors).toBeUndefined();
 
   // ===========================================================================
 
@@ -44,31 +44,29 @@ test ("should be able to change the article", async ( ) => {
   };
 
   // createdAt here is discarded/ignored
-  const changed = await Article.set (changesSample);
-  expect (changed.body.data).toBeDefined ( );
-  expect (changed.body.errors).toBeUndefined ( );
+  const changed = await Article.set(changesSample);
+  expect(changed.body.data).toBeDefined();
+  expect(changed.body.errors).toBeUndefined();
 
-  expect (changed.body.data.setArticle.id).toEqual (
+  expect(changed.body.data.setArticle.id).toEqual(
     article.body.data.createArticle.id
   );
 
-  expect (changed.body.data.setArticle.authorId).toEqual (
+  expect(changed.body.data.setArticle.authorId).toEqual(
     natasha.body.data.createAuthor.id
   );
 
-  expect (changed.body.data.setArticle.title).toEqual (
-    "Go is fading out"
-  );
+  expect(changed.body.data.setArticle.title).toEqual("Go is fading out");
 
-  expect (changed.body.data.setArticle.content).toEqual (
+  expect(changed.body.data.setArticle.content).toEqual(
     article.body.data.createArticle.content
   );
 
-  expect (changed.body.data.setArticle.id).toEqual (
+  expect(changed.body.data.setArticle.id).toEqual(
     article.body.data.createArticle.id
   );
 
-  expect (changed.body.data.setArticle.createdAt).toEqual (
+  expect(changed.body.data.setArticle.createdAt).toEqual(
     article.body.data.createArticle.createdAt
   );
 });

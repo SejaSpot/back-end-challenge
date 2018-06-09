@@ -1,14 +1,13 @@
-'use strict';
+"use strict";
 
-const { connection } = require ('../models');
+const { connection } = require("../models");
 
-const sync = async ( ) => {
-  await connection.authenticate ( );
-  await connection.sync ( );
+const sync = async () => {
+  await connection.authenticate();
+  await connection.sync();
 };
 
-const notFound = (Model, id) =>
-  `${Model} not found for given id ${id}!`;
+const notFound = (Model, id) => `${Model} not found for given id ${id}!`;
 
 const check = (value, reason) => {
   if (value === null || value === undefined) {
@@ -19,17 +18,16 @@ const check = (value, reason) => {
 };
 
 const project = (input, selectors) => {
-  const output = { };
+  const output = {};
 
   for (const selector of selectors) {
-    output[ selector ] = input[ selector ];
+    output[selector] = input[selector];
   }
 
   return output;
 };
 
-const failedCreation = (Model, id) =>
-  `Failed to create ${Model} for ID ${id}!`;
+const failedCreation = (Model, id) => `Failed to create ${Model} for ID ${id}!`;
 
 module.exports.sync = sync;
 module.exports.notFound = notFound;

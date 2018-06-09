@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const http = require ('./http');
+const http = require("./http");
 
 const createArticleMutation = `
   mutation createArticle ($input : ArticleInput!) {
@@ -62,9 +62,9 @@ const setArticleMutation = `
   }
 `;
 
-const destroy = id      => http.query (destroyArticleMutation, { id });
-const get     = id      => http.query (getArticleMutation, { id });
-const create  = input   => http.query (createArticleMutation, { input });
-const set     = changes => http.query (setArticleMutation, { changes });
+const destroy = id => http.query(destroyArticleMutation, { id });
+const get = id => http.query(getArticleMutation, { id });
+const create = input => http.query(createArticleMutation, { input });
+const set = changes => http.query(setArticleMutation, { changes });
 
 module.exports = { destroy, get, set, create };

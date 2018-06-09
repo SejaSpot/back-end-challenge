@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 module.exports = {
+  // queryInterface * Sequelize -> promise
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Articles', {
+    return queryInterface.createTable("Articles", {
       id: {
         allowNull: false,
         autoIncrement: false,
@@ -24,8 +25,8 @@ module.exports = {
       authorId: {
         allowNull: false,
         type: Sequelize.STRING,
-        references: { model: 'Authors', key: 'id' },
-        onDelete: 'CASCADE'
+        references: { model: "Authors", key: "id" },
+        onDelete: "CASCADE"
       },
       version: {
         allowNull: false,
@@ -42,7 +43,8 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Articles');
+  // queryInterface * Sequelize -> promise
+  down: queryInterface => {
+    return queryInterface.dropTable("Articles");
   }
 };

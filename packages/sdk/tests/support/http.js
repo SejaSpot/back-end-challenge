@@ -2,11 +2,11 @@
 
 const axios = require("axios");
 
-let PORT = process.env.PORT ? (process.env.PORT - 0) : 3000;
+let PORT = process.env.PORT ? process.env.PORT - 0 : 3000;
 
 if (process.env.NODE_ENV === "development") PORT += 1;
-if (process.env.NODE_ENV === "testing")     PORT += 2;
-if (process.env.NODE_ENV === "coverage")    PORT += 3;
+if (process.env.NODE_ENV === "testing") PORT += 2;
+if (process.env.NODE_ENV === "coverage") PORT += 3;
 
 const config = {
   baseURL: `http://localhost:${PORT}`,
@@ -49,14 +49,13 @@ const post = (url, params = {}) => {
 
   return promise.join(request);
 };
-*/
 
 const get = url => axios.get(url, config).then(translate, recover);
+*/
 
 const post = (url, params = {}) =>
   axios.post(url, params, config).then(translate, recover);
 
-const query = (query, variables) =>
-  post('/query', { query, variables });
+const query = (query, variables) => post("/query", { query, variables });
 
 module.exports.query = query;

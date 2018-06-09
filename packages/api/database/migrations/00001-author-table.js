@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 module.exports = {
+  // queryInterface * Sequelize -> promise
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Authors', {
+    return queryInterface.createTable("Authors", {
       id: {
         allowNull: false,
         autoIncrement: false,
@@ -32,7 +33,8 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Authors');
+  // queryInterface * Sequelize -> promise
+  down: queryInterface => {
+    return queryInterface.dropTable("Authors");
   }
 };

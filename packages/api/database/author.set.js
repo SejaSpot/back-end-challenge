@@ -1,27 +1,26 @@
-'use strict';
+"use strict";
 
-const cuid = require ('cuid');
-const { authorAttrs, Author } = require ('./models');
-const { sync, check, project, notFound } = require ('./helper');
+const { authorAttrs, Author } = require("./models");
+const { sync, check, project, notFound } = require("./helper");
 
-const set = async (changes) => {
-  await sync ( );
+const set = async changes => {
+  await sync();
 
   // we shouldn't change the primary key to not break caching
   // on the client-side, e.g, with Relay
-  const fields = ['name', 'bio'];
+  const fields = ["name", "bio"];
   const attributes = authorAttrs;
   const options = { fields, attributes };
 
-  const author = await Author.findById (changes.id);
-  const reason = notFound ('Author', changes.id);
-  check (author, reason);
+  const author = await Author.findById(changes.id);
+  const reason = notFound("Author", changes.id);
+  check(author, reason);
 
   delete changes.id;
-  const result = await author.update (changes, options);
-  check (result, reason);
+  const result = await author.update(changes, options);
+  check(result, reason);
 
-  return project (result, attributes);
+  return project(result, attributes);
 };
 
 module.exports = set;

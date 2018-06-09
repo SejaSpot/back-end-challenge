@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const { makeExecutableSchema } = require ('graphql-tools');
-const resolvers = require ('./resolvers');
+const { makeExecutableSchema } = require("graphql-tools");
+const resolvers = require("./resolvers");
 
 const typeDefs = `
   type Author {
@@ -89,9 +89,9 @@ const typeDefs = `
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
-  resolverValidationOptions :{
+  resolverValidationOptions: {
     requireResolversForResolveType: false
-  },
+  }
 });
 
 module.exports = schema;

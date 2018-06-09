@@ -1,21 +1,20 @@
-'use strict';
+"use strict";
 
-const database = require ('../database');
+const database = require("../database");
 
-const getArticle = (root, args) =>
-  database.getArticle (args.id);
+const getArticle = (root, args) => database.getArticle(args.id);
 
-const createArticle = (root, args) =>
-  database.createArticle (args.input);
+const createArticle = (root, args) => database.createArticle(args.input);
 
-const setArticle = (root, args) =>
-  database.setArticle (args.changes);
+const setArticle = (root, args) => database.setArticle(args.changes);
 
-const destroyArticle = (root, args) =>
-  database.destroyArticle (args.id);
+const destroyArticle = (root, args) => database.destroyArticle(args.id);
 
-module.exports.Query = { };
+module.exports.Query = {};
 
 module.exports.Mutation = {
-  getArticle, setArticle, createArticle, destroyArticle
+  getArticle,
+  setArticle,
+  createArticle,
+  destroyArticle
 };

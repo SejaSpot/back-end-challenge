@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const author = require ('./author');
-const article = require ('./article');
+const author = require("./author");
+const article = require("./article");
 
 module.exports.getAuthor = author.get;
 module.exports.setAuthor = author.set;

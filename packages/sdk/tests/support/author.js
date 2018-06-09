@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const http = require ('./http');
+const http = require("./http");
 
 const getAuthorQuery = `
   query getAuthor ($id : ID!) {
@@ -54,10 +54,10 @@ const setAuthorMutation = `
   }
 `;
 
-const get     = id      => http.query (getAuthorQuery, { id });
-const create  = input   => http.query (createAuthorMutation, { input });
-const destroy = id      => http.query (destroyAuthorMutation, { id });
-const set     = changes => http.query (setAuthorMutation, { changes });
+const get = id => http.query(getAuthorQuery, { id });
+const create = input => http.query(createAuthorMutation, { input });
+const destroy = id => http.query(destroyAuthorMutation, { id });
+const set = changes => http.query(setAuthorMutation, { changes });
 
 module.exports.get = get;
 module.exports.create = create;

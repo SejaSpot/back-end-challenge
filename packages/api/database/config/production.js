@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const debug = require ('debug') ('sequelize');
-const parse = require('parse-database-url');
+const debug = require("debug")("sequelize");
+const parse = require("parse-database-url");
 
-const config = parse (process.env.DATABASE_URL);
+const config = parse(process.env.DATABASE_URL);
 
 module.exports = {
   username: config.user,
