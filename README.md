@@ -28,9 +28,9 @@ TLDR, `$ docker-compose up --build`
 - [ ] Cursor-based pagination (Relay-compliant)
 - [x] BDD/E2E/Integration tests
 - [ ] Multi-stage Docker builds
-- [ ] Rate-limit & resource-limit for endpoints & GraphQL
+- [x] Rate-limit & resource-limit for endpoints & GraphQL
 - [x] Process-manager
-- [ ] Health-checking
+- [x] Health-checking
 - [ ] Transactional control for multiple related queries
 
 #### Tools:

@@ -7,14 +7,23 @@ const router = express.Router();
 const schema = require("../schema");
 const { graphqlExpress } = require("apollo-server-express");
 const expressPlayground = require("graphql-playground-middleware-express");
+const depthLimit = require("graphql-depth-limit");
+const costAnalysis = require("graphql-cost-analysis").default;
 
 // request -> options
-const queryOptions = () => {
+const queryOptions = req => {
   return {
     schema,
     rootValue: null,
     tracing: true,
-    cacheControl: true
+    cacheControl: true,
+    validationRules: [
+      depthLimit(7),
+      costAnalysis({
+        variables: req.body.variables,
+        maximumCost: 1000
+      })
+    ]
   };
 };
 
