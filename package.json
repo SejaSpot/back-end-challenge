@@ -16,7 +16,7 @@
     "deploy:heroku": "git push heroku HEAD:master",
     "postinstall": "lerna bootstrap",
     "start": "cd packages/api && NODE_ENV=production yarn start",
-    "start:dev": "cd packages/api && NODE_ENV=development yarn start:dev",
+    "start:dev": "cd packages/api && DEBUG=*,*:* NODE_ENV=development yarn start:dev",
     "up": "NODE_ENV=production lerna run up",
     "up:dev": "NODE_ENV=development lerna run up:dev",
     "up:test": "NODE_ENV=testing lerna run up:test",

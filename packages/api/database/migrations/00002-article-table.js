@@ -19,8 +19,8 @@ module.exports = {
         type: Sequelize.TEXT
       },
       views: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       authorId: {
         allowNull: false,
@@ -29,16 +29,19 @@ module.exports = {
         onDelete: "CASCADE"
       },
       version: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        allowNull: true,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        allowNull: true,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },

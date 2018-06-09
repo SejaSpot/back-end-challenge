@@ -19,16 +19,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       version: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        allowNull: true,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        allowNull: true,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },
