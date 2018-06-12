@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const config = require('./config/config')
 
-
 const app = express()
 const authorController = require('./controller/author.controller')
 const blogController = require('./controller/blog.controller')

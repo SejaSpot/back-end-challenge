@@ -1,7 +1,7 @@
 const knex = require('../config/knex')
 
 exports.getAllAuthors = async() => {
-
+    
     const authors = [
         {
             nome : 'teste', 
