@@ -1,3 +1,5 @@
+const knex = require('../config/knex')
+
 exports.getAllAuthors = async() => {
 
     const authors = [
@@ -21,4 +23,20 @@ exports.getAllAuthors = async() => {
 
     return await authors;
 
+}
+
+exports.get = (id) => {
+
+}
+
+exports.create = (author) => {
+
+}
+
+exports.update = (id) => {
+    
+}
+
+exports.delete = (id) => {
+    
 }

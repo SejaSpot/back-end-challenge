@@ -1,10 +1,10 @@
-const repository = require('../repository/author.repository')
+const repository = require('../repository/category.repository')
 
 
 exports.getAll = async(req,res,next) => {
 
     try {
-        const authors = await repository.getAllAuthors();
+        //const authors = await repository.getAllAuthors();
         res.status(200).send(authors)
 
     } catch(e) {
