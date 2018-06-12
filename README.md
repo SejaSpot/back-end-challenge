@@ -9,13 +9,15 @@
 
 #### Further Documentation
 
-- [Challenge description/requirements](docs/CHALLENGE)
-- [Rationale comments](docs/COMMENTS)
-- [Database setup](docs/DATABASE)
-- [Server setup](docs/INSTRUCTIONS)
-- [Routes specification](docs/ROUTES)
+- [Challenge description/requirements](docs/CHALLENGE.md)
+- [Rationale comments](docs/COMMENTS.md)
+- [Database setup](docs/DATABASE.md)
+- [Server setup](docs/INSTRUCTIONS.md)
+- [Routes specification](docs/ROUTES.md)
 
-TLDR, `$ docker-compose up --build`
+TLDR,
+- `$ docker-compose up --build --scale test=0` (development server)
+- `$ docker-compose up --build --scale dev=0` (testing suite)
 
 #### Performed Steps:
 
@@ -27,7 +29,7 @@ TLDR, `$ docker-compose up --build`
 
 - [ ] Cursor-based pagination (Relay-compliant)
 - [x] BDD/E2E/Integration tests
-- [ ] Multi-stage Docker builds
+- [ ] Multi-stage Docker builds (see [Dockerfile](Dockerfile))
 - [x] Rate-limit & resource-limit for endpoints & GraphQL
 - [x] Process-manager
 - [x] Health-checking

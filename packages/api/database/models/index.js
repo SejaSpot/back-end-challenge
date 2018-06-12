@@ -4,6 +4,8 @@ const Sequelize = require("sequelize");
 const config = require("../config");
 const author = require("./author");
 const article = require("./article");
+const category = require("./category");
+const categorization = require("./categorization");
 const cls = require("continuation-local-storage");
 
 const namespace = cls.createNamespace("spot-challenge-sequelize-namespace");
@@ -33,11 +35,15 @@ const transaction = procedure => sequelize.transaction(procedure);
 
 const models = {
   Author: author(sequelize, Sequelize),
-  Article: article(sequelize, Sequelize)
+  Article: article(sequelize, Sequelize),
+  Category: category(sequelize, Sequelize),
+  Categorization: categorization(sequelize, Sequelize)
 };
 
 models.Author.associate(models);
 models.Article.associate(models);
+models.Category.associate(models);
+models.Categorization.associate(models);
 
 module.exports = models;
 module.exports.connection = sequelize;
@@ -64,3 +70,7 @@ module.exports.articleAttrs = [
   "updatedAt",
   "version"
 ];
+
+module.exports.categoryAttrs = ["id"];
+
+module.exports.categorizationAttrs = ["articleId", "categoryId"];

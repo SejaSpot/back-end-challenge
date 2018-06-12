@@ -50,13 +50,11 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
 
-    /*
-    Article.belongsToMany (models.Category, {
+    Article.belongsToMany(models.Category, {
       through: models.Categorization,
-      as: 'CategoriesForArticle',
-      foreignKey: 'articleId'
+      as: "CategoriesForArticle",
+      foreignKey: "articleId"
     });
-*/
   };
 
   return Article;
