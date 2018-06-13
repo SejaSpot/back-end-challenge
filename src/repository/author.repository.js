@@ -1,27 +1,9 @@
 const knex = require('../config/knex')
 
-exports.getAllAuthors = async() => {
+exports.getAll = async() => {
     
-    const authors = [
-        {
-            nome : 'teste', 
-            descricao: 'testetsettsetsetsetsts'
-        },
-
-        {
-            nome : 'teste1', 
-            descricao: 'testetsettsetsetsetsts'
-        },
-
-        {
-            nome : 'teste2', 
-            descricao: 'testetsettsetsetsetsts'
-        }
-
-        
-    ]
-
-    return await authors;
+    const data = await knex.select('*').from('Author')
+    return data;
 
 }
 
@@ -29,8 +11,17 @@ exports.get = (id) => {
 
 }
 
-exports.create = (author) => {
-
+exports.create = async (author) => {
+    
+    const data = await knex
+        .insert({ 
+            nome: author.nome,
+            sobre: author.sobre,
+            usuario: author.usuario,
+            senha: author.senha
+        })
+        .into('Author')
+    return data;
 }
 
 exports.update = (id) => {
