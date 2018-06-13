@@ -4,8 +4,8 @@ const repository = require('../repository/author.repository')
 exports.getAll = async(req,res,next) => {
 
     try {
-        const authors = await repository.getAll();
-        res.status(200).send(authors)
+        const data = await repository.getAll();
+        res.status(200).send(data)
 
     } catch(e) {
 
@@ -16,7 +16,22 @@ exports.getAll = async(req,res,next) => {
 
 }
 
-exports.get = (req,res,next) => {
+exports.get = async(req,res,next) => {
+
+    try {
+        
+        const data = await repository.get(req.params.id)
+        res.status(200).send(data);
+    
+    } catch(e) {
+
+        res.status(404).send({ 
+            message: "Este autor não existe", 
+            error: e
+        })
+
+    }
+
     
 }
 
@@ -34,7 +49,7 @@ exports.create = async(req,res,next) => {
         const data = await repository.create(author)
 
         res.status(200).send({
-            message : "Autor Cadastrado com Sucesso",
+            message : "Autor Cadastrado com Sucesso.",
             data: data
         })
 
@@ -48,11 +63,44 @@ exports.create = async(req,res,next) => {
     }
 }
 
-exports.update = (req,res,next) => {
-    
+exports.update = async(req,res,next) => {
+
+    try {
+        const data = await repository.update(req.params.id, req.body)
+
+        res.status(200).send({
+            message : "Autor atualizado com Sucesso.",
+            data: data
+        })
+
+    } catch(e) {
+
+        res.status(500).send({
+            message: "Não foi possivel efetuar sua requisição", 
+            error: e
+        })
+
+    }
+
 }
 
-exports.delete = (req,res,next) => {
+exports.delete = async(req,res,next) => {
     
+    try {
+        const data = await repository.delete(req.params.id)
+
+        res.status(200).send({
+            message: "Registro Excluido com Sucesso"
+        })
+
+    } catch(e) {
+
+        res.status(500).send({
+            message: "Registro não pode ser excluido",
+            error: e
+        })
+        
+    }
+
 }
 
