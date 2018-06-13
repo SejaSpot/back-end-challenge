@@ -3,5 +3,18 @@ language: node_js
 services:
   - postgresql
 
+env:
+  - BLOG_DB_PASS=""
+
+before_install:
+  - export PATH=./node_modules/.bin:$PATH
+
+script:
+  - yarn test
+
 cache:
   yarn: true
+  directories:
+    - "node_modules"
+    - "packages/sdk/node_modules"
+    - "packages/api/node_modules"

@@ -1,0 +1,9 @@
+node_modules
+node_modules/
+node_modules/**/*.js
+packages/api/node_modules
+packages/api/node_modules/
+packages/api/node_modules/**/*.js
+packages/sdk/node_modules
+packages/sdk/node_modules/
+packages/sdk/node_modules/**/*.js

@@ -24,7 +24,8 @@
     "down:dev": "NODE_ENV=development lerna run down:dev",
     "down:test": "NODE_ENV=testing lerna run down:test",
     "down:test:crash": "NODE_ENV=testing lerna run down:test && exit 1",
-    "pretest": "prettier -l **/*.js && NODE_ENV=testing yarn run up:test",
+    "pretty": "prettier --ignore-path .prettierignore --config-precedence file-override --config .prettierrc -l **/*.js",
+    "pretest": "yarn run pretty && NODE_ENV=testing yarn run up:test",
     "posttest": "NODE_ENV=testing yarn run down:test",
     "test": "NODE_ENV=testing lerna run test --prefix --stream || NODE_ENV=testing yarn run down:test:crash"
   },

@@ -8,3 +8,8 @@ Procfile
 *.log
 .env
 .gitignore
+docker-compose.yml
+Dockerfile
+.travis.yml
+.gitlab-ci.yml
+TRASH/

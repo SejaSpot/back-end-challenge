@@ -1,4 +1,4 @@
-FROM node:8.11 as build
+FROM node:8.11
 
 COPY lerna.json .
 COPY package*.json ./
@@ -17,20 +17,11 @@ RUN yarn \
   --check-files \
   --verbose
 
+COPY .eslintignore .prettierignore ./
+COPY .eslintrc.js .prettierrc ./
 COPY . .
 
 ENV PATH="./node_modules/.bin:$PATH"
-
-################################################################################
-# FROM node:8.11 as test
-
-# COPY --from=build . .
-
-# ENV PATH="./node_modules/.bin:$PATH"
-
-# RUN npm config set unsafe-perm=true
-# RUN sudo chown -R $(whoami) /proc
-# RUN yarn test
 
 ### Bug:
 #
@@ -48,13 +39,6 @@ ENV PATH="./node_modules/.bin:$PATH"
 # only the generated binaries, e.g, as is the case of Go, OCaml and Java.
 #
 
-################################################################################
-# FROM node:8.11
-
-# COPY --from=test . .
-
-# RUN rm -rfv packages/sdk
-
 LABEL io.github.marcoonroad.name="marcoonroad/spot-challenge"
 LABEL io.github.marcoonroad.maintainer="marcoonroad at gmail dot com"
 LABEL io.github.marcoonroad.description="Spot Challenge - Blog API"
@@ -65,6 +49,3 @@ LABEL io.github.marcoonroad.version="0.0.1"
 EXPOSE 3000
 EXPOSE 3001
 EXPOSE 3002
-
-ENTRYPOINT ["yarn"]
-# CMD ["run", "start:dev"]

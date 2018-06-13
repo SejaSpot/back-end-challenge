@@ -4,7 +4,7 @@ services:
   dev:
     image: marcoonroad/spot-challenge
     build: .
-    privileged: true
+    privileged: false
     ports:
       - "3000:3000"
       - "3001:3001"
@@ -14,29 +14,53 @@ services:
     depends_on:
       - db
     environment:
-      - DEBUG="*,*:*"
-      - BLOG_DB_PORT=5444
-    command: ["run", "start:dev"]
+      - DEBUG=*,*:*
+      - NODE_ENV=development
+      - BLOG_DB_HOST=db
+    command:
+      - /bin/sh
+      - -c
+      - |
+        sleep 5
+        lerna run db:kill
+        lerna run db:create
+        yarn run start:dev
 
+  ### bug:
+  #
+  # Actually, Prettier still fails in some sense here. It takes too long to
+  # run, implying CPU starvation. Possibly the configuration files at this
+  # project are ignored, so it ends up parsing the flood of node_modules/
+  # as well here instead of just project files.
+  #
   test:
     image: marcoonroad/spot-challenge
     build: .
-    privileged: true
+    privileged: false
     networks:
       - postgres
     depends_on:
       - db
     environment:
-      - NODE_ENV="testing"
-      - BLOG_DB_PORT=5444
-    command: ["test"]
+      - NODE_ENV=testing
+      - BLOG_DB_HOST=db
+    restart: on-failure
+    command:
+       - /bin/sh
+       - -c
+       - |
+         sleep 5
+         lerna run db:kill
+         yarn run up:test
+         lerna run test --prefix --stream || yarn run down:test:crash
+         yarn run down:test
 
   db:
     image: postgres
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5444:5432"
+      - "5432:5432"
     volumes:
       - ./data/postgres:/var/lib/postgres
     networks:
