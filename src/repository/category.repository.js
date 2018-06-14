@@ -28,7 +28,7 @@ exports.create = async(category) => {
     const data = await knex
         .insert({
             nome : category.nome,
-            categoriaPai: category.categoryPai 
+            categoriaPai: category.categoriaPai 
         })
         .into('Category')
 
@@ -36,22 +36,18 @@ exports.create = async(category) => {
 
 }
 
-exports.update = async(id, Category) => {
+exports.update = async(id, category) => {
 
     var objectToUpdate = {}
      
-    if(Category.nome) objectToUpdate.nome = Category.nome
-    if(Category.sobre) objectToUpdate.sobre = Category.sobre
-    if(Category.usuario) objectToUpdate.usuario = Category.usuario
-    if(Category.senha) objectToUpdate.senha = md5(Category.senha+global.SALT_KEY)
+    if(category.nome) objectToUpdate.nome = category.nome
+    if(category.categoriaPai) objectToUpdate.categoriaPai = category.categoriaPai
 
     const data = await knex('Category')
         .where('id', '=', id)
         .update({
            nome: objectToUpdate.nome,
-           sobre: objectToUpdate.sobre,
-           usuario: objectToUpdate.usuario,
-           senha: objectToUpdate.senha 
+           categoriaPai: objectToUpdate.categoriaPai
         })
 
     return data

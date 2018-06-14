@@ -45,7 +45,6 @@ exports.create = async(req,res,next) => {
 
         res.status(200).send({
             message: "Categoria criada com sucesso",
-            data: data
         })
 
     } catch(e) {
@@ -58,11 +57,41 @@ exports.create = async(req,res,next) => {
     }
 }
 
-exports.update = (req,res,next) => {
-    
+exports.update = async(req,res,next) => {
+    try {
+        const data = await repository.update(req.params.id, req.body)
+
+        res.status(200).send({
+            message : "Categoria atualizada com Sucesso."
+        })
+
+    } catch(e) {
+
+        res.status(500).send({
+            message: "Não foi possivel efetuar sua requisição", 
+            error: e
+        })
+
+    }
 }
 
-exports.delete = (req,res,next) => {
+exports.delete = async(req,res,next) => {
     
+    try {
+        const data = await repository.delete(req.params.id)
+
+        res.status(200).send({
+            message: "Registro Excluido com Sucesso"
+        })
+
+    } catch(e) {
+
+        res.status(500).send({
+            message: "Registro não pode ser excluido",
+            error: e
+        })
+        
+    }
+
 }
 

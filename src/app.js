@@ -19,13 +19,13 @@ app.delete('/autor/:id', authorController.delete);
 app.get('/blog', blogController.get);
 app.post('/blog', blogController.create);
 app.put('/blog', blogController.update);
-app.delete('/blog', blogController.delete);
+app.delete('/blog/:id', blogController.delete);
 
 app.get('/categorias', categoryController.getAll);
-app.get('/categoria', categoryController.get);
+app.get('/categoria/:id', categoryController.get);
 app.post('/categoria', categoryController.create);
-app.put('/categoria', categoryController.update);
-app.delete('/categoria', categoryController.delete);
+app.put('/categoria/:id', categoryController.update);
+app.delete('/categoria/:id', categoryController.delete);
 
 
 module.exports = app;
