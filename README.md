@@ -1,6 +1,7 @@
 ## Spot Back-end JR Challenge
 
-[![pipeline status](https://gitlab.com/marcoonroad/back-end-challenge/badges/marcoonroad_2018-06-02/pipeline.svg)](https://gitlab.com/marcoonroad/back-end-challenge/commits/marcoonroad_2018-06-02)
+GitLab CI: [![pipeline status](https://gitlab.com/marcoonroad/back-end-challenge/badges/marcoonroad_2018-06-02/pipeline.svg)](https://gitlab.com/marcoonroad/back-end-challenge/commits/marcoonroad_2018-06-02) <br/>
+Travis CI: [![Build Status](https://travis-ci.com/marcoonroad/back-end-challenge.svg?branch=marcoonroad_2018-06-02)](https://travis-ci.com/marcoonroad/back-end-challenge)
 
 ---
 
