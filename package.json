@@ -13,7 +13,11 @@
   "description": "Esse desafio tem o objetivo de testar algumas habilidades em back-end.",
   "version": "0.0.1",
   "scripts": {
-    "deploy:heroku": "git push heroku HEAD:master",
+    "deploy:heroku": "git push heroku HEAD:master --force",
+    "postdeploy:heroku": "NODE_ENV=production heroku run -s free -- npx lerna run db:reset",
+    "push:gitlab": "git push gitlab --all --force",
+    "push:bitbucket": "git push bitbucket --all --force",
+    "push:github": "git push origin --all --force",
     "postinstall": "lerna --concurrency 1 bootstrap",
     "start": "cd packages/api && NODE_ENV=production yarn start",
     "start:dev": "cd packages/api && DEBUG=*,*:* NODE_ENV=development yarn start:dev",

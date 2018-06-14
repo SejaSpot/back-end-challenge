@@ -11,6 +11,7 @@
     "db:clear": "sequelize db:seed:undo:all --env $NODE_ENV",
     "db:up": "yarn run db:migrate && yarn run db:seed",
     "db:down": "npm-run-all db:clear db:revert",
+    "db:reset": "npm-run-all db:down db:up",
     "db:spawn": "npm-run-all db:create db:up",
     "db:kill": "npm-run-all db:down db:drop",
     "db:respawn": "npm-run-all db:kill db:spawn",

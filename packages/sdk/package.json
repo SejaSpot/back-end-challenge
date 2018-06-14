@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "description": "SDK for clients to access the Backend API.",
   "scripts": {
-    "test": "jest --verbose --color"
+    "pretest": "export PORT=${PORT:-3000} && wait-on http-get://localhost:`expr $PORT + 2`",
+    "test": "sleep 5 && jest --verbose --color"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
   "devDependencies": {
     "axios": "^0.18.0",
     "depcheck": "^0.6.9",
-    "jest": "^23.1.0"
+    "jest": "^23.1.0",
+    "wait-on": "^2.1.0"
   },
   "dependencies": {
     "cuid": "^2.1.1",

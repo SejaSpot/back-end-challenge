@@ -5,6 +5,7 @@ const config = require("../config");
 const author = require("./author");
 const article = require("./article");
 const category = require("./category");
+const subcategory = require("./subcategory");
 const categorization = require("./categorization");
 const cls = require("continuation-local-storage");
 
@@ -37,13 +38,15 @@ const models = {
   Author: author(sequelize, Sequelize),
   Article: article(sequelize, Sequelize),
   Category: category(sequelize, Sequelize),
-  Categorization: categorization(sequelize, Sequelize)
+  Categorization: categorization(sequelize, Sequelize),
+  Subcategory: subcategory(sequelize, Sequelize)
 };
 
 models.Author.associate(models);
 models.Article.associate(models);
 models.Category.associate(models);
 models.Categorization.associate(models);
+models.Subcategory.associate(models);
 
 module.exports = models;
 module.exports.connection = sequelize;
@@ -72,5 +75,5 @@ module.exports.articleAttrs = [
 ];
 
 module.exports.categoryAttrs = ["id"];
-
 module.exports.categorizationAttrs = ["articleId", "categoryId"];
+module.exports.subcategoryAttrs = ["id", "categoryId"];

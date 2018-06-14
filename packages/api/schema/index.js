@@ -28,6 +28,11 @@ const typeDefs = `
     id : ID!
   }
 
+  type Subcategory {
+    id : ID!
+    categoryId : String!
+  }
+
   type AuthorPayload {
     id        : ID!
     name      : String!
@@ -54,6 +59,11 @@ const typeDefs = `
     id : ID!
   }
 
+  type SubcategoryPayload {
+    id : ID!
+    categoryId : String!
+  }
+
   input AuthorInput {
     name : String!
     bio  : String!
@@ -67,6 +77,11 @@ const typeDefs = `
 
   input CategoryInput {
     id : ID!
+  }
+
+  input SubcategoryInput {
+    id : ID!
+    categoryId : String!
   }
 
   input AuthorChanges {
@@ -85,6 +100,7 @@ const typeDefs = `
   type Query {
     getAuthor (id : ID!) : Author!
     getCategory (id: ID!) : Category!
+    getSubcategory (id : ID!) : Subcategory!
   }
 
   type Mutation {
@@ -102,6 +118,9 @@ const typeDefs = `
 
     createCategory (input : CategoryInput!) : CategoryPayload!
     destroyCategory (id : ID!) : CategoryPayload!
+
+    createSubcategory (input : SubcategoryInput!) : SubcategoryPayload!
+    destroySubcategory (id : ID!) : SubcategoryPayload!
   }
 `;
 

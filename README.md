@@ -34,6 +34,7 @@ TLDR,
 - [x] Process-manager
 - [x] Health-checking
 - [ ] Transactional control for multiple related queries
+- [ ] Circuit-breaker + Health-checking for fail-fast connections (no timeouts)
 
 #### Tools:
 
