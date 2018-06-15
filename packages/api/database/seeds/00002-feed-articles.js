@@ -26,6 +26,13 @@ module.exports = {
           content: "Yadda yadda yadda...",
           authorId: "joe-the-big",
           title: "Resource Acquisition is Initialization for the Winner!"
+        },
+        {
+          id: "scrum-vs-lean",
+          views: 589,
+          title: "Scrum VS. Lean - Why not both?",
+          content: "(wow that's quite a good article)",
+          authorId: "amberite"
         }
       ],
       {}
