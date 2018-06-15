@@ -6,7 +6,7 @@ const cuid = require("cuid");
 const { Category, Subcategory } = require("./support");
 
 test("should create a subcategory", async () => {
-  expect.assertions(8);
+  expect.assertions(9);
 
   const categoryId = cuid();
   const subcategoryId = cuid();
@@ -30,6 +30,10 @@ test("should create a subcategory", async () => {
   );
 
   expect(subcategory.body.data.createSubcategory.categoryId).toEqual(
+    categoryId
+  );
+
+  expect(subcategory.body.data.createSubcategory.category.id).toEqual(
     categoryId
   );
 });

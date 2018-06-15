@@ -2,6 +2,8 @@
 
 const database = require("../database");
 
+// =============================================================================
+
 const addCategory = async (root, args) => {
   await database.createCategorization(args.id, args.categoryId);
 
@@ -13,6 +15,8 @@ const removeCategory = async (root, args) => {
 
   return await database.getArticle(args.id);
 };
+
+// =============================================================================
 
 module.exports.Query = {};
 

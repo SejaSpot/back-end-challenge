@@ -5,7 +5,7 @@
 const { Author, Article } = require("./support");
 
 test("should be able to create articles", async () => {
-  expect.assertions(9);
+  expect.assertions(10);
 
   const authorSample = {
     name: "Jeniffer Lion",
@@ -38,5 +38,9 @@ test("should be able to create articles", async () => {
 
   expect(article.body.data.createArticle.createdAt).toEqual(
     article.body.data.createArticle.updatedAt
+  );
+
+  expect(article.body.data.createArticle.author.id).toEqual(
+    author.body.data.createAuthor.id
   );
 });

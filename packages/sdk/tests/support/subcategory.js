@@ -7,6 +7,9 @@ const getSubcategoryQuery = `
     getSubcategory (id : $id) {
       id
       categoryId
+      category {
+        id
+      }
     }
   }
 `;
@@ -16,6 +19,9 @@ const destroySubcategoryMutation = `
     destroySubcategory (id : $id) {
       id
       categoryId
+      category {
+        id
+      }
     }
   }
 `;
@@ -25,6 +31,9 @@ const createSubcategoryMutation = `
     createSubcategory (input : $input) {
       id
       categoryId
+      category {
+        id
+      }
     }
   }
 `;

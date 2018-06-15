@@ -28,7 +28,8 @@ test("should destroy subcategory on category deletion", async () => {
 
   const output2 = {
     id: categoryId2 + ":" + subcategoryId2,
-    categoryId: categoryId2
+    categoryId: categoryId2,
+    category: { id: categoryId2 }
   };
 
   const subcategory1 = await Subcategory.create(input1);

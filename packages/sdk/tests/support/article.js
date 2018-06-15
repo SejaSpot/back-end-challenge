@@ -7,6 +7,11 @@ const createArticleMutation = `
     createArticle (input : $input) {
       id
       authorId
+      author {
+        id
+        name
+        bio
+      }
       views
       title
       content
@@ -22,6 +27,11 @@ const getArticleMutation = `
     getArticle (id : $id) {
       id
       authorId
+      author {
+        id
+        name
+        bio
+      }
       views
       title
       content
@@ -37,6 +47,11 @@ const destroyArticleMutation = `
     destroyArticle (id : $id) {
       id
       authorId
+      author {
+        id
+        name
+        bio
+      }
       views
       title
       content
@@ -56,6 +71,11 @@ const setArticleMutation = `
       title
       views
       authorId
+      author {
+        id
+        name
+        bio
+      }
       version
       updatedAt
     }

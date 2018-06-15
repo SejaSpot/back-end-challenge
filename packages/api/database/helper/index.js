@@ -1,6 +1,7 @@
 "use strict";
 
 const { connection } = require("../models");
+const { pagination } = require("./paging");
 
 const sync = async () => {
   await connection.authenticate();
@@ -34,3 +35,4 @@ module.exports.notFound = notFound;
 module.exports.check = check;
 module.exports.project = project;
 module.exports.failedCreation = failedCreation;
+module.exports.paginate = pagination;

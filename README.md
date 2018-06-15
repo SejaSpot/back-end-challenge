@@ -6,7 +6,7 @@ Travis CI: [![Build Status](https://travis-ci.com/marcoonroad/back-end-challenge
 ---
 
 - Candidate: Marco Aurélio da Silva
-- On-line Site: https://spot-back-end-challenge.herokuapp.com/
+- On-line Site: https://spot-back-end-challenge.herokuapp.com/query/playground
 
 #### Further Documentation
 
@@ -28,7 +28,7 @@ TLDR,
 
 #### Used concepts/features:
 
-- [ ] Cursor-based pagination (Relay-compliant)
+- [x] Cursor-based pagination (Relay-compliant)
 - [x] BDD/E2E/Integration tests
 - [ ] Multi-stage Docker builds (see [Dockerfile](Dockerfile))
 - [x] Rate-limit & resource-limit for endpoints & GraphQL
