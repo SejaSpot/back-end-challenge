@@ -4,7 +4,7 @@ const repository = require('../repository/post.repository')
 exports.getAll = async(req,res,next) => {
 
     try {
-        const data = await repository.getAll();
+        const data = await repository.getAll()
         res.status(200).send(data)
 
     } catch(e) {
@@ -13,7 +13,6 @@ exports.getAll = async(req,res,next) => {
 
     }
     
-
 }
 
 exports.get = async(req,res,next) => {
@@ -39,14 +38,7 @@ exports.create = async(req,res,next) => {
 
     try {
 
-        const author = {
-            nome: req.body.nome,
-            sobre: req.body.sobre,
-            usuario: req.body.usuario,
-            senha: req.body.senha
-        }
-
-        const data = await repository.create(author)
+        const data = await repository.create(req.body)
 
         res.status(200).send({
             message : "Post cadastrado com Sucesso.",
@@ -57,7 +49,7 @@ exports.create = async(req,res,next) => {
 
         res.status(500).send({
             message: "Não foi possivel efetuar sua requisição.", 
-            rrror: e
+            error: e
         })
 
     }

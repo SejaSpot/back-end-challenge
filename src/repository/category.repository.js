@@ -1,5 +1,5 @@
 const knex = require('../config/knex')
-const md5 = require('md5')
+
 
 exports.getAll = async() => {
     
@@ -17,7 +17,7 @@ exports.get = async(id) => {
     const data = await knex
         .select('*')
         .from('Category')
-        .where('id',id)
+        .where('id', id)
 
     return data[0]
 
