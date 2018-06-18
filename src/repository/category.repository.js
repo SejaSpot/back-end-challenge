@@ -5,7 +5,7 @@ exports.getAll = async() => {
     
     const data = await knex
         //.select('nome', 'sobre')
-        .select('*')
+        .select('id', 'nome')
         .from('Category')
         
     return data
@@ -25,10 +25,12 @@ exports.get = async(id) => {
 
 exports.create = async(category) => {
 
+    const categoriaPai = category.categoriaPai || 0
+
     const data = await knex
         .insert({
             nome : category.nome,
-            categoriaPai: category.categoriaPai 
+            categoriaPai: categoriaPai 
         })
         .into('Category')
 

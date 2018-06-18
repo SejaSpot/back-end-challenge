@@ -12,7 +12,9 @@ module.exports = {
 
     seeds: {
       directory:  './src/config/database/seeds'
-    }
+    },
+
+    "useNullAsDefault": false
   },
 
 };

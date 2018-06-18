@@ -18,8 +18,10 @@ app.delete('/autor/:id', authorController.delete)
 
 app.get('/blog', postController.getAll)
 app.get('/blog/:id', postController.get)
+app.get('/blog/categoria/:id', postController.getPostsFromCategory)
+app.get('/blog/autor/:id', postController.getPostsFromAuthor)
 app.post('/blog', postController.create)
-app.put('/blog', postController.update)
+app.put('/blog/:id', postController.update)
 app.delete('/blog/:id', postController.delete)
 
 app.get('/categorias', categoryController.getAll)

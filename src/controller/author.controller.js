@@ -50,14 +50,13 @@ exports.create = async(req,res,next) => {
 
         res.status(200).send({
             message : "Autor Cadastrado com Sucesso.",
-            data: data
         })
 
     } catch(e) {
 
         res.status(500).send({
             message: "Não foi possivel efetuar sua requisição", 
-            rrror: e
+            error: e
         })
 
     }
@@ -70,7 +69,6 @@ exports.update = async(req,res,next) => {
 
         res.status(200).send({
             message : "Autor atualizado com Sucesso.",
-            data: data
         })
 
     } catch(e) {

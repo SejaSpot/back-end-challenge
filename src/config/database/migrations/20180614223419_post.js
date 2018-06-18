@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
         table.text('conteudo')
         table.dateTime('dataPublicacao')
         table.integer('idAutor').references('id').inTable('Author')
+        table.integer('visualizacoes')
     })
 };
 
