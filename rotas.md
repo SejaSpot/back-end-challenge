@@ -2,7 +2,7 @@
 
 ## Criar, Editar ou Apagar Categoria
 
-[(POST)] (http://localhost:3100/categoria)
+(POST) /categoria
     {
 
         "nome": "MongoDB",
@@ -10,18 +10,18 @@
 
     }
 
-(PUT/DELETE) http://localhost:3100/:id
+(PUT/DELETE) /:id
 
 
 
 ## Visualizar todas as categorias ou uma categoria especifica
 
-(GET) http://localhost:3100/categorias
-(GET) http://localhost:3100/categoria/:id
+(GET) /categorias
+(GET) /categoria/:id
 
 ## Criar, Editar ou Apagar Autor
 
-(POST) http://localhost:3100/autor
+(POST) /autor
     {
         
         "nome": "Fernando CArvalho",
@@ -34,13 +34,13 @@
 
     }
 
-(PUT/DELETE) http://localhost:3100/:id
+(PUT/DELETE) /:id
 
 
 
 ## Criar, Editar ou Apagar Postagem
 
-(POST) http://localhost:3100/blog
+(POST) /blog
     {
         
         "titulo":"Construindo um E-commerce utilizando Laravel - Parte 6",
@@ -53,22 +53,22 @@
 
     }
 
-(PUT/DELETE) http://localhost:3100/:id
+(PUT/DELETE) /:id
 
 
 
 ## Listar Posts de uma determinada categoria
 
-GET http://localhost:3100/blog/categoria/:id
+(GET) /blog/categoria/:id
 
 
 ## Listar Posts de um determinado Autor
 
-GET http://localhost:3100/blog/autor/:id
+(GET) /blog/autor/:id
 
 
 Todas as paginas de listagem de Posts, Categorias ou Autores exibem por padrão 5 itens por página. Para alterar a paginação poderá passar via query os valores ?p e ?total. Ambos não são obrigatórios.
 
 Exemplo de requisição com paginação:
 
-http://localhost:3100/categorias/?p=1&total=3
+/categorias/?p=1&total=3
