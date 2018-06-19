@@ -1,12 +1,18 @@
 const repository = require('../repository/post.repository')
+const util = require('../utils/paginate.util')
 
 
 exports.getAll = async(req,res,next) => {
 
     try {
-        const data = await repository.getAll()
+
+        const paginate = await util.paginate(req.query.p, req.query.total)
+
+        const data = await repository.getAll(paginate)
         
-        res.status(200).send(data)
+        res.status(200).send({
+            data
+        })
 
     } catch(e) {
 

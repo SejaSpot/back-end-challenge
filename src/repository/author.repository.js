@@ -1,12 +1,14 @@
 const knex = require('../config/knex')
 const md5 = require('md5')
 
-exports.getAll = async() => {
+exports.getAll = async(pag) => {
     
     const data = await knex
         //.select('nome', 'sobre')
         .select('*')
         .from('Author')
+        .limit(pag.limit)
+        .offset(pag.offset)
         
     return data
 

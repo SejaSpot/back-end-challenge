@@ -1,12 +1,14 @@
 const knex = require('../config/knex')
 
 
-exports.getAll = async() => {
+exports.getAll = async(pag) => {
     
     const data = await knex
         //.select('nome', 'sobre')
         .select('id', 'nome')
         .from('Category')
+        .limit(pag.limit)
+        .offset(pag.offset)
         
     return data
 

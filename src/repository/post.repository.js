@@ -2,12 +2,16 @@ const knex = require('../config/knex')
 
 
 
-exports.getAll = async() => {
+exports.getAll = async(pag) => {
     
+    
+
     const data = await knex
         .select('p.id', 'p.titulo', 'p.conteudo', 'p.dataPublicacao as publicado', 'p.visualizacoes', 'Author.nome as autor')
         .from('Post AS p')
         .innerJoin('Author', 'p.idAutor', 'Author.id')
+        .limit(pag.limit)
+        .offset(pag.offset)
 
     return data
 
