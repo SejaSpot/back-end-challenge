@@ -10,9 +10,7 @@ exports.getAll = async(req,res,next) => {
 
         const data = await repository.getAll(paginate)
         
-        res.status(200).send({
-            data
-        })
+        res.status(200).send(data)
 
     } catch(e) {
 
