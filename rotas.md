@@ -2,7 +2,7 @@
 
 ## Criar, Editar ou Apagar Categoria
 
-(POST) http://localhost:3100/categoria
+[(POST)] (http://localhost:3100/categoria)
     {
 
         "nome": "MongoDB",
