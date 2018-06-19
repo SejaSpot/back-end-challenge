@@ -1,7 +1,7 @@
 # Back-end JR Challenge #
 
-Almir Barbosa de Oliveira Júnior
-oliveira_junior90@hotmail.com
+- Almir Barbosa de Oliveira Júnior
+- oliveira_junior90@hotmail.com
 
 ## Primeiros passos
 
