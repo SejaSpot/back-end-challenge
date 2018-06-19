@@ -8,5 +8,5 @@
 Apenas execute o comando npm install e logo em seguida npm start para rodar a aplicação.
 
 - [Documentação das rotas](rotas.md)
-- [Visão geral da aplicação](comments.md)
+- [Visão geral da aplicação](COMMENTS.md)
 
