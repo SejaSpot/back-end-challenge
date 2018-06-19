@@ -66,6 +66,7 @@
 
 (GET) /blog/autor/:id
 
+## Paginação
 
 Todas as paginas de listagem de Posts, Categorias ou Autores exibem por padrão 5 itens por página. Para alterar a paginação poderá passar via query os valores ?p e ?total. Ambos não são obrigatórios.
 
