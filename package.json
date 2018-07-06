@@ -1,0 +1,22 @@
+{
+  "name": "api_desafio",
+  "version": "1.0.0",
+  "description": "Esse desafio tem o objetivo de testar algumas habilidades em back-end.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/server.js"
+  },
+  "author": "Guilherme Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "body-passer": "^1.0.0",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "mongoose": "^5.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
