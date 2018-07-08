@@ -13,3 +13,13 @@ services:
     image: mongo:4.0.0
     ports:
       - "27017:27017"
+  test:
+    build: .
+    command: bash -c "npm install; npm run jest;"
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongo
+      - web

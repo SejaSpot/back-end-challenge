@@ -4,7 +4,7 @@
   "description": "Esse desafio tem o objetivo de testar algumas habilidades em back-end.",
   "main": "app.js",
   "scripts": {
-    "nodemon": "nodemon app.js",
+    "nodemon": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "mongoose": "^5.2.1"
   },
   "devDependencies": {
+    "jest": "^23.3.0",
     "nodemon": "^1.17.5"
   }
 }
