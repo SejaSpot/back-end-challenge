@@ -10,7 +10,7 @@ services:
     links:
       - mongo
   mongo:
-    image: mongo:4.0.0
+    image: mongo
     ports:
       - "27017:27017"
   test:
