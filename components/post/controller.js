@@ -1,9 +1,9 @@
-const Author = require('../models/author');
+const model = require('./model');
 
 const get = async (req, res) => {
   try {
-    const { page, limit } = req.query;
-    const models = await Author.find().skip(limit * (page - 1)).limit(Number(limit));
+    const { page, limit, author, categories } = req.query;
+    const models = await model.find({ author, categories }).skip(limit * (page - 1)).limit(Number(limit));
     res.send(models);
   } catch (err) {
     res.send(err);
@@ -12,7 +12,7 @@ const get = async (req, res) => {
 
 const getById = async (req, res) => {
   try {
-    const model = await Author.findOne({ _id: req.params.id });
+    const model = await model.findOne({ _id: req.params.id });
     res.send(model);
   } catch (err) {
     res.send(err);
@@ -21,7 +21,7 @@ const getById = async (req, res) => {
 
 const post = async (req, res) => {
   try {
-    const model = await Author.create(req.body);
+    const model = await model.create(req.body);
     res.send(model);
   } catch (err) {
     res.send(err);
@@ -30,8 +30,8 @@ const post = async (req, res) => {
 
 const put = async (req, res) => {
   try {
-    await Author.findByIdAndUpdate({ _id: req.params.id }, req.body);
-    const model = await Author.findOne({ _id: req.params.id });
+    await model.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    const model = await model.findOne({ _id: req.params.id });
     res.send(model);
   } catch (err) {
     res.send(err);
@@ -40,7 +40,7 @@ const put = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
-    const model = await Author.findByIdAndRemove({ _id: req.params.id });
+    const model = await model.findByIdAndRemove({ _id: req.params.id });
     res.send(model);
   } catch (err) {
     res.send(err);
