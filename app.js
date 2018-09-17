@@ -1,21 +1,14 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
-const routes = require("./routes");
-const port = 3000;
+const author = require("./components/author");
+const category = require("./components/category");
+const post = require("./components/post");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/", routes);
+app.use("/author", author.router);
+app.use("/category", category.router);
+app.use("/post", post.router);
 
-mongoose
-  .connect("mongodb://mongo/")
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`Aplicação ouvindo na porta ${port}!`);
-    });
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+module.exports = app;
