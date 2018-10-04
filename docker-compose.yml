@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c "npm install; npm run nodemon;"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+  test:
+    build: .
+    command: bash -c "npm install; npm run jest;"
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongo
+      - web
